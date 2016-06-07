@@ -1,0 +1,11 @@
+{
+  "name": "pair_students",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Gio d'Amelio",
+  "license": "MIT"
+}
