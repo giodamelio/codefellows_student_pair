@@ -1,13 +1,28 @@
 import React from 'react';
 import reactDom from 'react-dom';
+import { Router, Route, IndexRoute, Link, hashHistory } from 'react-router';
 
-class HelloWorld extends React.Component {
+import Home from './home';
+import Courses from './courses';
+
+class App extends React.Component {
   render() {
-    return <h1>Hello React!</h1>;
+    return (
+      <div>
+        <h1>Student Pairs</h1>
+
+        {this.props.children}
+      </div>
+    );
   }
 }
 
 reactDom.render(
-  <HelloWorld></HelloWorld>,
+  <Router history={hashHistory}>
+    <Route path="/" component={App}>
+      <IndexRoute component={Home} />
+      <Route path="courses" component={Courses} />
+    </Route>
+  </Router>,
   document.getElementById('app')
 );

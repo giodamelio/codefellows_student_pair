@@ -24,6 +24,7 @@
     "express": "^4.13.4",
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
+    "react-router": "^2.4.1",
     "request-promise": "^3.0.0"
   }
 }
