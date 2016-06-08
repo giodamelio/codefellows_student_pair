@@ -6,7 +6,7 @@ const server = express();
 server.use('/api', require('./api'));
 
 // Serve static content
-server.use(express.static('./front'));
+server.use(express.static('./dist'));
 
 // Handle errors
 server.use(function(err, req, res, next) {
