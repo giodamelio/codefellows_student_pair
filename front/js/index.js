@@ -1,5 +1,5 @@
-const React = require('react');
-const reactDom = require('react-dom');
+import React from 'react';
+import reactDom from 'react-dom';
 
 class HelloWorld extends React.Component {
   render() {
