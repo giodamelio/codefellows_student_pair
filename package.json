@@ -13,6 +13,7 @@
     "eslint-config-airbnb": "^9.0.1"
   },
   "dependencies": {
+    "express": "^4.13.4",
     "request-promise": "^3.0.0"
   }
 }

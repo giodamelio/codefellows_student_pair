@@ -1,13 +1,13 @@
-const CanvasAPI = require('./canvas');
+const express = require('express');
 
-const canvas = new CanvasAPI(process.env.CANVAS_TOKEN);
+const server = express();
 
-canvas.getCourses()
-  .then(function(courses) {
-    return Promise.all(courses.map(function(course) {
-      return canvas.getStudents(course.id);
-    }));
-  })
-  .then(function(students) {
-    console.log(students);
-  });
+server.get('/', function(req, res) {
+  res.send('Hello World');
+});
+
+const PORT = process.env.PORT || 3141;
+server.listen(PORT, function() {
+  console.log(`Server running at http://localhost:${PORT}`);
+});
+
