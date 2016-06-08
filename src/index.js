@@ -5,23 +5,31 @@ const CanvasAPI = require('./canvas');
 const canvas = new CanvasAPI(process.env.CANVAS_TOKEN);
 const server = express();
 
-server.get('/', function(req, res) {
+// List the courses a teacher/ta has access to
+server.get('/api/courses', function(req, res) {
   canvas.getCourses()
     .then(function(courses) {
-      return Promise.all(courses.map(function(course) {
-        return canvas.getStudents(course.id);
-      }));
-    })
+      res.send(courses);
+    });
+});
+
+// List the students in a course a teacher/ta has access to
+server.get('/api/courses/:id/students', function(req, res) {
+  canvas.getStudents(req.params.id)
     .then(function(students) {
       res.send(students);
-    })
-    .catch(function(error) {
-      console.error(error);
-      res.status(500);
-      res.send({
-        error: error.message,
-      });
     });
+});
+
+// Handle errors
+server.use(function(err, req, res, next) {
+  if (!err) return next();
+
+  console.error(err.stack);
+  res.status(500);
+  res.send({
+    error: err,
+  });
 });
 
 const PORT = process.env.PORT || 3141;
