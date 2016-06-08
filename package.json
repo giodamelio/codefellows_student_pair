@@ -2,9 +2,9 @@
   "name": "pair_students",
   "version": "1.0.0",
   "description": "",
-  "main": "src/index.js",
+  "main": "back/index.js",
   "scripts": {
-    "start": "nodemon src/index.js"
+    "start": "nodemon back/index.js"
   },
   "author": "Gio d'Amelio",
   "license": "MIT",
