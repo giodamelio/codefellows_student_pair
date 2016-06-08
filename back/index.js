@@ -6,7 +6,15 @@ const server = express();
 server.use('/api', require('./api'));
 
 // Serve static content
-server.use(express.static('./dist'));
+if (process.env.NODE_ENV !== 'production') {
+  const webpack = require('webpack');
+  const webpackDevMiddleware = require('webpack-dev-middleware');
+  server.use(webpackDevMiddleware(webpack(
+    require('../webpack.config.js')
+  )));
+} else {
+  server.use(express.static('./dist'));
+}
 
 // Handle errors
 server.use(function(err, req, res, next) {
