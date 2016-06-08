@@ -2,10 +2,14 @@
   "name": "pair_students",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Gio d'Amelio",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^2.11.1",
+    "eslint-config-airbnb": "^9.0.1"
+  }
 }
