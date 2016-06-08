@@ -5,6 +5,8 @@ const server = express();
 // Add our routes
 server.use('/api', require('./api'));
 
+// Serve static content
+server.use(express.static('./front'));
 
 // Handle errors
 server.use(function(err, req, res, next) {
