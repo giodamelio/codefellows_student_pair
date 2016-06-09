@@ -1,0 +1,9 @@
+{
+  "parser": "babel-eslint",
+  "extends": "airbnb",
+  "rules": {
+    "func-names": 0,
+    "spaced-comment": [2, "always", { "markers": ["/"] }],
+    "no-param-reassign": [2, { "props": false }]
+  }
+}
