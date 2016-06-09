@@ -11,7 +11,9 @@ import Counter from './counter';
 import reducers from './reducers';
 
 // Create redux store
-const store = createStore(reducers);
+const store = createStore(reducers, {
+  counter: 0,
+}, window.devToolsExtension ? window.devToolsExtension() : f => f);
 
 class App extends React.Component {
   render() {
