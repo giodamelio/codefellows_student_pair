@@ -4,7 +4,8 @@
   "description": "",
   "main": "back/index.js",
   "scripts": {
-    "start": "nodemon back/index.js"
+    "start": "nodemon back/index.js",
+    "lint": "eslint front/ back/"
   },
   "author": "Gio d'Amelio",
   "license": "MIT",
