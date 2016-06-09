@@ -1,32 +1,17 @@
 import React from 'react';
 import reactDom from 'react-dom';
-import { Router, Route, IndexRoute, Link, hashHistory } from 'react-router';
+import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 
+import App from './app';
 import Home from './home';
 import Courses from './courses';
 import Counter from './counter';
 
 import reducers from './reducers';
 
-// Create redux store
-const store = createStore(reducers, {
-  counter: 0,
-}, window.devToolsExtension ? window.devToolsExtension() : f => f);
-
-class App extends React.Component {
-  render() {
-    return (
-      <div>
-        <h1>Student Pairs</h1>
-
-        {this.props.children}
-      </div>
-    );
-  }
-}
-
+// Create routes
 const routes = (
   <Router history={hashHistory}>
     <Route path="/" component={App}>
@@ -36,9 +21,14 @@ const routes = (
   </Router>
 );
 
+// Create redux store
+const store = createStore(reducers, {
+  counter: 0,
+}, window.devToolsExtension ? window.devToolsExtension() : f => f);
+
 reactDom.render(
   <Provider store={store}>
-    <Counter />
+    {routes}
   </Provider>,
   document.getElementById('app')
 );
